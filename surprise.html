@@ -53,12 +53,25 @@
             height: 200px;
             background: white;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
+            
+        @media (max-width: 408px) {
+            .message {width: 250px;
+            height: 200px;}
+        }
+
+        @media (max-width: 708px) {
+            .message {width: 350px;
+            height: 200px;}
+        }
+
         h1 {
             color: #e91e63;
+            animation: fadeIn 2s ease-in-out;
+
         }
         button {
             background: #ff4081;
