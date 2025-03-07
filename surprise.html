@@ -1,0 +1,114 @@
+<!-- surprise.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Message</title>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b, #ff7eb3, #ffae42, #ff758c);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite ease-in-out;          }
+        /* Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+.floating-icons {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .icon {
+            position: absolute;
+          
+            color: rgba(255, 0, 87);
+            font-size: 24px;
+            animation: float 10s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        .message {
+            width: 500px;
+            height: 200px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #e91e63;
+        }
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+          margin-bottom:30px;
+            padding: 10px;
+            width: 50%;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-icons"></div>
+
+    <div class="message">
+        <h1>You Are Amazing!</h1>
+        <p>Happy Women's Day! Keep shining and inspiring the world! 💖</p>
+       
+        <button class="button" onclick="openSurprises()">Next Surprise</button>
+
+       </div>
+
+       <script>
+        function openSurprises() {
+            window.open('wish.html', '_blank');
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        function createFloatingIcons() {
+            const container = document.querySelector(".floating-icons");
+            for (let i = 0; i < 15; i++) {
+                let icon = document.createElement("div");
+                icon.classList.add("icon");
+                icon.innerHTML = "❤";
+                icon.style.left = Math.random() * 100 + "vw";
+                icon.style.animationDuration = (Math.random() * 5 + 5) + "s";
+                container.appendChild(icon);
+                setTimeout(() => icon.remove(), 5000);
+            }
+            setTimeout(createFloatingIcons, 1000);
+        }   
+        createFloatingIcons();
+
+
+
+       </script>
+</body>
+</html>
